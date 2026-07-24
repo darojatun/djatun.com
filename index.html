@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Djatun Computer - Padang Sidempuan</title>
+   <link rel="icon" type="image/x-icon" href="/favicon.ico">    
+   <link rel="icon" type="image/png" href="/favicon.png">
+   <link rel="stylesheet" href="style.css">
+
+  <meta name="description" content="PT DJATUN JARING CAKRAWALA - Penjualan Komputer  dan jaringan termasuk jasa  instalasi dan pemeliharaan. Hardware, Software, CCTV, LAN, WAN, Wireless/Fiber, Elektricity, PLTS, dll">
+  <link rel="canonical" href="https://djatun.com">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Djatun Computer - Padang Sidempuan">
+  <meta property="og:description" content="PT Djatun Jaring Cakrawala - Penjualan Komputer  termasuk jasa  instalasi dan maintenance. Komputer, Server, Laptop, Printer, Router, System  Operasi, Software, CCTV, kelistrikan, backup dll ">
+  <meta property="og:image" content="https://djatun.com/favicon.png">
+  <meta property="og:url" content="https://djatun.com">
+</head>
+<body>
+
+<svg>
+  <filter id="gooey">
+    <feMorphology operator="dilate" radius="0.8" in="SourceGraphic" result="dilate"/>
+    
+    <feGaussianBlur in="dilate" stdDeviation="2.2" result="blur" />
+    <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+    <feComposite in="SourceGraphic" in2="goo" operator="atop" result="gooey" />
+  </filter>
+</svg>
+<canvas id="pinkboard"></canvas>
+<script src="love.js"></script>
+<div id="text"">🩷 Djatun Computer 🩷</div>
+  <div id="hearts" class="hearts">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+    <div class="five"></div>
+  </div>
+<script src="hearts.js"></script>
+  <!-- Audio Element (Hidden) -->
+  <audio id="audioPlayer"></audio>
+  <!-- Tombol Kontrol -->
+  <button class="floating-player" onclick="togglePlay()" aria-label="Putar/Pause">
+    <div id="playIcon" class="icon-play"></div>
+    <div id="pauseIcon" class="icon-pause hidden">
+      <div class="pause-bar"></div>
+      <div class="pause-bar"></div>
+    </div>
+  </button>
+  <!-- Indikator Lagu Sedang Diputar (Opsional) -->
+  <div id="nowPlayingText" class="now-playing">Play music</div>
+<script src="player.js"></script>
+<script src="text.js"></script>
+</body>
+</html>

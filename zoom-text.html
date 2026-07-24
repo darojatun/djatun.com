@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uji Coba Zoom Bass MP3</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        #container {
+            padding: 40px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #222;
+            margin-bottom: 20px;
+        }
+        #zoom-text {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            transition: font-size 0.05s ease-out; 
+        }
+        #status-log {
+            color: #ff4757;
+            margin-top: 15px;
+            font-size: 14px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="text">TEKS ZOOM BASS</div>
+    </div>
+
+    <!-- PENTING: Ganti 'musik.mp3' dengan nama file MP3 Anda yang satu folder -->
+    <audio id="audioPlayer" src="https://djatun.com/mp3/Brothers Forever.mp3" controls crossOrigin="anonymous"></audio>
+    
+    <!-- Tempat memunculkan pesan jika ada error komputer -->
+    <div id="nowPlayingText">Status: Menunggu musik diputar...</div>
+<script src="text.js"></script>
+</body>
+</html>
+
