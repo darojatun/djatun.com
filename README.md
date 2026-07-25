@@ -1,32 +1,3 @@
-Berikut adalah rangkuman isi file README.md yang telah dibuat untuk repository https://github.com/darojatun/djatun.com:
-
-Judul & Deskripsi: Penjelasan bahwa proyek ini adalah source code untuk djatun.com yang dikembangkan dari hasil kolaborasi/modifikasi kode dari CodePen, AI, dan cssgradient.io.
-
-Fitur Utama:
-
-Teks besar di tengah dengan styling CSS.
-
-Efek animasi Ledakan Love (Heart Explosion).
-
-Gelembung melayang (Bubble Love).
-
-Jejak elemen love mengikuti kursor mouse.
-
-Music player dengan fitur playlist interaktif yang bisa disembunyikan/dimunculkan.
-
-Efek zoom teks besar yang sinkron dengan alur musik.
-
-File terpisah untuk pengujian efek zoom teks.
-
-Atribusi & Kredit: Mencantumkan CodePen, platform AI (Brave, Gemini, Claude, Copilot), serta cssgradient.io.
-
-Panduan Penggunaan: Petunjuk clone repository dan menjalankan project.
-
-
-
-
-Gemini adalah AI dan dapat melakukan kesalahan.
-
 # djatun.com
 
 Repository ini berisi kode sumber untuk website [djatun.com](https://djatun.com). Proyek ini merupakan hasil modifikasi, eksperimen, dan kolaborasi kode yang didapatkan dari berbagai sumber seperti **CodePen**, alat **AI (Brave AI, Gemini, Claude, dan Copilot)**, serta pembuat gradien warna **cssgradient.io**.
