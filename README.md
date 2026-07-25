@@ -23,7 +23,7 @@ Website ini dilengkapi dengan berbagai efek visual dan fitur interaktif CSS/Java
 
 Proyek ini dibangun dan disempurnakan dengan bantuan beberapa platform dan alat bantu:
 
-* **CodePen**: [Inspirasi referensi komponen visual dan snippet animasi](https://codepen.io/).
+* **[CodePen](https://codepen.io/)**: Inspirasi referensi komponen visual dan snippet animasi.
 * **Kecerdasan Buatan (AI)**:
   * [Brave AI](https://search.brave.com/)
   * [Google Gemini](https://gemini.google.com/)
