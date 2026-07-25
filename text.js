@@ -1,6 +1,5 @@
 const textDiv = document.getElementById('text');
 // Status log menggunakan  kolom info lagu  jadi dibuat delay 2 detik agak tidak menimpa
-const statusLog = document.getElementById('nowPlayingText');
 const BASE_FONT_SIZE = 70; 
 const MAX_FONT_SIZE = 80;
 
@@ -30,14 +29,11 @@ function initAudio() {
         analyser.connect(audioContext.destination);
 
         isInitialized = true;
-        statusLog.style.color = "#2ed573";
-        statusLog.textContent = "Status: Analisis Audio Berhasil Berjalan!";
-        
+	console.debug("Status: Analisis Audio Berhasil Berjalan!");
         // Mulai animasi zoom
         updateZoomByBass();
     } catch (error) {
         console.error(error);
-        statusLog.textContent = "Error Sistem: " + error.message;
     }
 }
 
