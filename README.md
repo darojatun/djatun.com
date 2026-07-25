@@ -12,8 +12,8 @@ Website ini dilengkapi dengan berbagai efek visual dan fitur interaktif CSS/Java
 * **Efek Ledakan Love (Heart Explosion)**: Animasi partikel love yang meledak/menyebar saat dipicu interaksi tertentu.
 * **Bubble Love**: Animasi gelembung berbentuk love yang melayang secara dinamis.
 * **Love Following Mouse Pointer**: Efek jejak elemen love yang mengikuti pergerakan kursor/pointer mouse pengakses.
-* **Music Player dengan Playlist Hilang-Timbul**: Pemutar musik interaktif lengkap dengan daftar putar (playlist) yang dapat disembunyikan dan dimunculkan kembali (*toggle*).
-* **Zoom Teks Berjalan Mengikuti Musik**: Efek visualisasi di mana teks besar membesar/mengecil (zoom) secara dinamis mengikuti irama musik yang sedang diputar.
+* **Music Player dengan Playlist Hilang-Timbul**: Pemutar musik interaktif  dengan daftar putar (playlist) yang  disembunyikan dan muncul hanya  informasi yang sedang diputar.
+* **Zoom Teks Berjalan Mengikuti Musik**: Efek visualisasi di mana teks besar membesar/mengecil (zoom) secara dinamis mengikuti bass musik yang sedang diputar.
 * **Halaman Uji Coba Zoom Teks**: Berkas terpisah yang digunakan khusus untuk menguji coba dan menyempurnakan fitur zoom teks.
 * **Dan Masih Banyak Lagi**: Berbagai eksperimen komponen UI/UX dan animasi visual menarik lainnya.
 
@@ -23,7 +23,7 @@ Website ini dilengkapi dengan berbagai efek visual dan fitur interaktif CSS/Java
 
 Proyek ini dibangun dan disempurnakan dengan bantuan beberapa platform dan alat bantu:
 
-* **CodePen**: Inspirasi referensi komponen visual dan snippet animasi.
+* **CodePen**: [Inspirasi referensi komponen visual dan snippet animasi](https://codepen.io/).
 * **Kecerdasan Buatan (AI)**:
   * [Brave AI](https://search.brave.com/)
   * [Google Gemini](https://gemini.google.com/)
