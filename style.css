@@ -29,7 +29,7 @@ svg {
 }
 
 #text  {
-  --font-size: 80px;
+  --font-size: 24px;
   font-weight: bold;
  font-size: var(--font-size);
   text-align: center;
