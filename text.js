@@ -1,9 +1,8 @@
-const audioPlayer = document.getElementById('audioPlayer');
 const textDiv = document.getElementById('text');
+// Status log menggunakan  kolom info lagu  jadi dibuat delay 2 detik agak tidak menimpa
 const statusLog = document.getElementById('nowPlayingText');
-
-const BASE_FONT_SIZE = 24; 
-const MAX_FONT_SIZE = 100;
+const BASE_FONT_SIZE = 70; 
+const MAX_FONT_SIZE = 80;
 
 let audioContext;
 let analyser;
@@ -37,52 +36,58 @@ function initAudio() {
         // Mulai animasi zoom
         updateZoomByBass();
     } catch (error) {
-        statusLog.textContent = "Error Sistem: " + error.message;
         console.error(error);
+        statusLog.textContent = "Error Sistem: " + error.message;
     }
 }
+
+let smoothedFontSize = BASE_FONT_SIZE;
+let runningBassAvg = 0;
 
 function updateZoomByBass() {
     animationId = requestAnimationFrame(updateZoomByBass);
 
-    // Jika audio paused, stop animasi
     if (audioPlayer.paused) {
         textDiv.style.fontSize = `${BASE_FONT_SIZE}px`;
+        smoothedFontSize = BASE_FONT_SIZE;
         return;
     }
-
     if (!isInitialized || !analyser) return;
 
     analyser.getByteFrequencyData(dataArray);
 
-    // Ambil 8 indeks pertama untuk mendeteksi bass murni
     let bassSum = 0;
-    let bassCount = 8; 
-
+    let bassCount = 8;
     for (let i = 0; i < bassCount; i++) {
         bassSum += dataArray[i];
     }
-
     let averageBass = bassSum / bassCount;
 
-    // Jika lagu Anda bass-nya pelan, turunkan threshold ini ke 20 atau 30
-    let threshold = 40; 
-    let bassIntensity = 0;
+    // Baseline bass bergerak pelan mengikuti karakter lagu
+    runningBassAvg += (averageBass - runningBassAvg) * 0.02;
 
-    if (averageBass > threshold) {
-        bassIntensity = (averageBass - threshold) / (255 - threshold);
+    // Selisih bass sesaat vs baseline -> mendeteksi hentakan
+    let excess = averageBass - runningBassAvg;
+
+    // Sensitivitas lebih kecil karena rentang font lebih sempit (70-80)
+    let sensitivity = 18;
+    let bassIntensity = 0;
+    if (excess > 0) {
+        bassIntensity = Math.min(excess / sensitivity, 1);
     }
 
-    // Naikkan angka 80 jika ingin pembesaran teks lebih ekstrem
-    let zoomMultiplier = 80; 
-    let dynamicSize = BASE_FONT_SIZE + (bassIntensity * zoomMultiplier);
+    // Multiplier sekarang cuma perlu 10 (selisih MAX - BASE)
+    let zoomMultiplier = MAX_FONT_SIZE - BASE_FONT_SIZE;
+    let targetSize = BASE_FONT_SIZE + (bassIntensity * zoomMultiplier);
+    if (targetSize > MAX_FONT_SIZE) targetSize = MAX_FONT_SIZE;
+    if (targetSize < BASE_FONT_SIZE) targetSize = BASE_FONT_SIZE;
 
-    if (dynamicSize > MAX_FONT_SIZE) dynamicSize = MAX_FONT_SIZE;
-    if (dynamicSize < BASE_FONT_SIZE) dynamicSize = BASE_FONT_SIZE;
+    // Attack cepat, decay halus
+    let easing = targetSize > smoothedFontSize ? 0.45 : 0.07;
+    smoothedFontSize += (targetSize - smoothedFontSize) * easing;
 
-    textDiv.style.fontSize = `${dynamicSize}px`;
+    textDiv.style.fontSize = `${smoothedFontSize}px`;
 }
-
 // Inisialisasi audio ketika audio dimulai (play)
 audioPlayer.addEventListener('play', () => {
     // Resume AudioContext jika suspended
