@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap');
 
-* {B
+* {
   box-sizing: border-box;
 }
 
@@ -16,8 +16,6 @@ body {
   );
 
   font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
-  font-smoothing: antialiased;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,18 +27,20 @@ svg {
 }
 
 #text  {
-  --font-size: 70px;
+--font-size: 70px;
   font-weight: bold;
- font-size: var(--font-size);
- font-family: "Space Grotesk", sans-serif;
+  font-size: var(--font-size);
+  font-family: "Rubik Puddles", system-ui;
   text-align: center;
 
+  /* Makes text fill show the background pattern */
   color: transparent;
 
   --color: #e65f7f;
   --size: calc(var(--font-size) * 0.2);
   --width: calc(var(--size) * 0.6);
   --gap: calc(var(--width) * 0.5);
+
   background-image: repeating-linear-gradient(
     45deg,
     var(--color) 0 var(--width),
@@ -52,8 +52,7 @@ svg {
 
   animation: melt 1s linear infinite;
   filter: url("#gooey");
-            /* Transisi sangat cepat agar teks responsif mengikuti beat musik */
-            transition: font-size 0.05s ease-out; 
+  transition: font-size 0.05s ease-out; 
 }
 
 @keyframes melt {
@@ -70,9 +69,9 @@ canvas {
 
 .hearts {
   position: fixed; 
-      left: 43%;
+      left: 50%;
       bottom: 12%;
-
+     transform: translateX(-50%);
 }
 
 .one, .two, .three, .four, .five {
@@ -145,9 +144,9 @@ canvas {
     /* Gaya Tombol Mengambang */
     .floating-player {
       position: fixed;
-      center;
+      left: 50%;
       bottom: 10%;
-      transform: translateY(-50%);
+      transform: translateX(-50%);
       width: 45px;
       height: 45px;
       background: #94BBE9;
@@ -171,10 +170,9 @@ canvas {
 }
 
     .floating-player:hover {
-      transform: translateY(-50%) scale(1.1);
       box-shadow: 0 0 0 4px #ea82b2; 
+      transform: translateX(-50%) scale(1);
       animation: none;
-
     }
 
     /* Ikon Play (Segitiga) */
@@ -208,9 +206,9 @@ canvas {
     /* Opsional: Teks lagu yang sedang diputar (bisa dimunculkan jika mau) */
     .now-playing {
       position: fixed;
-      center;
+      left: 50%;
       bottom: 5%;
-      transform: translateY(-50%);
+      transform: translateX(-50%);
       background: rgba(148, 187, 233, 0.9);
       color: #e65f7f;
       padding: 8px 15px;
@@ -224,4 +222,128 @@ canvas {
     }
     .now-playing.show {
       opacity: 0.9;
+    }
+   @media (max-width: 640px) {
+    .floating-player {
+      position: fixed;
+      left: 12px;
+      top: 24px;
+      transform: translateX(0);
+      }
+   .floating-player:hover {
+      transform: translateX(0);
+      }
+
+   }
+
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Keyframes Animasi Transparan - Timbul */
+    @keyframes pulseFade {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.35;
+        transform: scale(0.96);
+      }
+    }
+
+    /* Form Container Fixed di Kanan Atas */
+    .wa-form-container {
+      position: fixed;
+      top: 24px;
+      transform: translateY(-50%);
+      right: 24px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      
+      /* Animasi Berjalan Secara Default */
+      animation: pulseFade 2.5s infinite ease-in-out;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Matikan Animasi saat Mouse Hover ATAU Saat Elemen di Dalamnya Sedang Fokus (Klik Input) */
+    .wa-form-container:hover,
+    .wa-form-container:focus-within {
+      animation-play-state: paused;
+      opacity: 1 !important;
+      transform: scale(1) !important;
+    }
+
+    /* Input Text Cantik Rounded */
+    .wa-input-text {
+      width: 200px;
+      padding: 10px 18px;
+      border: 2px solid #e7adcc;
+      border-radius: 30px;
+      outline: none;
+      font-size: 14px;
+      color: #333;
+      background-color: #FFF0F3;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      transition: all 0.3s ease;
+    }
+
+    .wa-input-text::placeholder {
+      color: #888;
+      font-style: italic;
+    }
+
+    .wa-input-text:focus {
+      width: 340px;
+      border-color: #ea80b0;
+      box-shadow: 0 6px 20px rgba(252, 68, 148, 0.3);
+    }
+
+    /* Tombol Submit Icon WhatsApp */
+    .wa-button {
+      width: 46px;
+      height: 46px;
+      background-color: #e7adcc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(252, 68, 148, 0.4);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      border: none;
+      flex-shrink: 0;
+    }
+
+    .wa-button:hover {
+      background-color: #ea80b0;
+      transform: scale(1.08);
+    }
+
+    .wa-button:active {
+      transform: scale(0.95);
+    }
+
+    /* Responsif untuk Layar HP */
+    @media (max-width: 640px) {
+      .wa-input-text {
+       width: 120px;
+        font-size: 13px;
+        padding: 8px 14px;
+      }
+      .wa-input-text:focus {
+        width: 220px;
+      }
+      .wa-button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
     }

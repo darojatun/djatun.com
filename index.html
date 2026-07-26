@@ -7,7 +7,6 @@
    <link rel="icon" type="image/x-icon" href="/favicon.ico">    
    <link rel="icon" type="image/png" href="/favicon.png">
    <link rel="stylesheet" href="style.css">
-
   <meta name="description" content="PT DJATUN JARING CAKRAWALA - Penjualan Komputer  dan jaringan termasuk jasa  instalasi dan pemeliharaan. Hardware, Software, CCTV, LAN, WAN, Wireless/Fiber, Elektricity, PLTS, dll">
   <link rel="canonical" href="https://djatun.com">
   <meta name="robots" content="index, follow">
@@ -29,7 +28,7 @@
 </svg>
 <canvas id="pinkboard"></canvas>
 <script src="love.js"></script>
-<div id="text">🩷 Djatun Computer 🩷</div>
+<div id="text">♡ Djatun Computer ♡</div>
   <div id="hearts" class="hearts">
     <div class="one"></div>
     <div class="two"></div>
@@ -39,18 +38,38 @@
   </div>
 <script src="hearts.js"></script>
   <!-- Audio Element (Hidden) -->
-  <audio id="audioPlayer" src="mp3/Brothers Forever.mp3"></audio>
-  <!-- Tombol Kontrol -->
-  <button class="floating-player" onclick="togglePlay()" aria-label="Putar/Pause">
-    <div id="playIcon" class="icon-play"></div>
-    <div id="pauseIcon" class="icon-pause hidden">
-      <div class="pause-bar"></div>
-      <div class="pause-bar"></div>
-    </div>
-  </button>
+<audio id="audioPlayer"></audio>
+<!-- Tombol Kontrol -->
+<button class="floating-player" onclick="togglePlay()" aria-label="Putar/Pause">
+  <span id="playIcon" class="icon-play"></span>
+  <span id="pauseIcon" class="icon-pause hidden">
+    <span class="pause-bar"></span>
+    <span class="pause-bar"></span>
+  </span>
+</button>
   <!-- Indikator Lagu Sedang Diputar (Opsional) -->
   <div id="nowPlayingText" class="now-playing">Play music</div>
 <script src="player.js"></script>
 <script src="text.js"></script>
+<!-- Floating Form (Pure HTML) -->
+  <form action="https://wa.me/6281265935970" method="GET" target="_blank" class="wa-form-container">
+    
+    <!-- Input Teks untuk Isian Pesan -->
+    <input 
+      type="text" 
+      name="text" 
+      class="wa-input-text" 
+      placeholder="Kabari kami" 
+      required
+      autocomplete="off"
+      id="wa-text"
+    >
+
+    <!-- Tombol Submit bertipe button bertema Icon WhatsApp -->
+    <button type="submit" class="wa-button" aria-label="Kirim ke WhatsApp">
+    <img src="whatsapp.png" alt="WhatsApp" width="32" height="32">
+    </button>
+<script src="wa.js"></script>
+  </form>
 </body>
 </html>
